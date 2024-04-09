@@ -4,6 +4,8 @@ import {
     ArrowRightIcon,
 } from 'react-native-heroicons/solid';
 import { useNavigation } from '@react-navigation/native'
+import { useSelector } from 'react-redux';
+import { selectIsOriginSet } from '../slices/navSlice';
 
 const data = [{
     id: '123',
@@ -19,6 +21,7 @@ const data = [{
 
 export default function NavOptions() {
     const navigation = useNavigation();
+    const isOriginSet = useSelector(selectIsOriginSet);
 
     return (
         <FlatList 
@@ -28,7 +31,8 @@ export default function NavOptions() {
             renderItem={({ item }) => (
                 <TouchableOpacity 
                     onPress={() => navigation.navigate(item.screen)}
-                    className='p-2 pl-6 pb-8 pt-4 bg-gray-200 flex-1 m-2'
+                    className={`p-2 pl-6 pb-8 pt-4 bg-gray-200 flex-1 m-2 ${!isOriginSet ? 'opacity-40' : ''}`}
+                    disabled={!isOriginSet}
                 >
                     <View>
                         <Image 

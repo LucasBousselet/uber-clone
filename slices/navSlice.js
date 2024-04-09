@@ -1,8 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  origin: null,
-  destination: null,
+  origin: { 
+    location: { 
+      latitude: null, 
+      longitude: null 
+    }, 
+    description: null },
+  destination: { 
+    location: { 
+      latitude: null, 
+      longitude: null 
+    }, 
+    description: null },
   travelTimeInformation: null
 }
 
@@ -32,5 +42,7 @@ export const { setOrigin, setDestination, setTravelTimeInformation } = navSlice.
 export const selectOrigin = state => state.nav.origin;
 export const selectDestination = state => state.nav.destination;
 export const selectTravelTimeInformation = state => state.nav.travelTimeInformation;
+export const selectIsOriginSet = state => state.nav.origin.location.longitude && state.nav.origin.location.latitude && state.nav.origin.description  
+export const selectIsDestinationSet = state => state.nav.destination.location.longitude && state.nav.destination.location.latitude && state.nav.destination.description  
 
 export default navSlice.reducer
