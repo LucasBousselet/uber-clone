@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const initialState = {
+export const initialState = {
   origin: { 
     location: { 
       latitude: null, 
@@ -21,14 +21,14 @@ export const navSlice = createSlice({
   initialState,
   reducers: {
     setOrigin: (state, action) => {
-        // Redux Toolkit allows us to write "mutating" logic in reducers. It
-        // doesn't actually mutate the state because it uses the Immer library,
-        // which detects changes to a "draft state" and produces a brand new
-        // immutable state based off those changes
-        state.origin = action.payload;
+      // Redux Toolkit allows us to write "mutating" logic in reducers. It
+      // doesn't actually mutate the state because it uses the Immer library,
+      // which detects changes to a "draft state" and produces a brand new
+      // immutable state based off those changes
+      state.origin = action.payload;
     },
     setDestination: (state, action) => {
-        state.destination = action.payload;
+      state.destination = action.payload;
     },
     setTravelTimeInformation: (state, action) => {
         state.travelTimeInformation = action.payload;
